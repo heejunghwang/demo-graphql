@@ -1,0 +1,32 @@
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // graphql 설정
+    compile 'com.graphql-java-kickstart:graphql-spring-boot-starter:5.7.3'
+
+    // to embed Altair tool
+    runtime 'com.graphql-java-kickstart:altair-spring-boot-starter:5.7.3'
+
+    // to embed GraphiQL tool
+    runtime 'com.graphql-java-kickstart:graphiql-spring-boot-starter:5.7.3'
+
+    // to embed Voyager tool
+    runtime 'com.graphql-java-kickstart:voyager-spring-boot-starter:5.7.3'
+
+    // testing facilities
+    testCompile 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:5.7.3'
+
+    runtime 'com.graphql-java-kickstart:graphql-java-tools'
+}

@@ -1,0 +1,13 @@
+type Query {
+    drink: [Drink]
+}
+
+type Drink{
+    id: Int
+    type: CoffeeType
+}
+
+enum CoffeeType {
+    AMERICANO,
+    LATTEE
+}

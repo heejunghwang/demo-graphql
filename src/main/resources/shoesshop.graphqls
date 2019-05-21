@@ -1,0 +1,14 @@
+type Query {
+    shoes: [Shoes]
+}
+
+type Shoes {
+    id: Int
+    brand: Brand
+    name: String
+}
+
+enum Brand {
+    ADIDAS,
+    PUMA
+}
