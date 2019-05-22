@@ -135,10 +135,9 @@ When you go to `http://localhost:8080/graphiql`, you can query like below.
 
 ```
 {
-    pets {
-        name
-        age
-        type
+    shoes {
+        id
+        brand
     }
 }
 ```
