@@ -3,6 +3,8 @@ package example.resolvers;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import example.animal.Pet;
 import example.animal.PetInput;
+import example.repository.PetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,8 +13,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class Mutation implements GraphQLMutationResolver {
 
+    @Autowired
+    private PetRepository petRepository;
+
     public Pet createPet(PetInput petInput){
-        //TODO
-        return null;
+        Pet pet = new Pet();
+        pet.setAge(petInput.getAge());
+        pet.setName(petInput.getName());
+        pet.setType(petInput.getType());
+        return petRepository.save(pet);
     }
 }

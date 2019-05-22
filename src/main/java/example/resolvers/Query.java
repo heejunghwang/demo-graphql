@@ -1,10 +1,10 @@
 package example.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import example.repository.PetRepository;
 import example.animal.Animal;
 import example.animal.Pet;
-import example.shoes.Brand;
-import example.shoes.Shoes;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -16,24 +16,18 @@ import java.util.List;
 @Component
 public class Query implements GraphQLQueryResolver {
 
-    public List<Pet> pets() {
-        List<Pet> pets = new ArrayList<>();
-        Pet aPet = new Pet();
-        aPet.setId(1l);
-        aPet.setName("Bill");
-        aPet.setAge(9);
-        aPet.setType(Animal.MAMMOTH);
-        pets.add(aPet);
-        return pets;
-    }
+    @Autowired
+    private PetRepository petRepository;
 
-    public List<Shoes> getShoes(){
-        List<Shoes> shoesList = new ArrayList<>();
-        Shoes shoes = new Shoes();
-        shoes.setBrand(Brand.ADIDAS);
-        shoes.setName("limited edition");
-        shoes.setId(1234);
-        shoesList.add(shoes);
-        return shoesList;
+    public List<Pet> pets() {
+//        List<Pet> pets = new ArrayList<>();
+//        Pet aPet = new Pet();
+//        aPet.setId(1l);
+//        aPet.setName("Bill");
+//        aPet.setAge(9);
+//        aPet.setType(Animal.MAMMOTH);
+//        pets.add(aPet);
+        return petRepository.findAll();
+//        return pets;
     }
 }

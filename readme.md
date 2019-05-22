@@ -142,5 +142,34 @@ When you go to `http://localhost:8080/graphiql`, you can query like below.
 }
 ```
 
-6. reference
+6. mutation (how to insert)
+You can use mutation query like this.
+
+```
+mutation createPet {
+  createPet(input: {
+    type: DOG,
+    name: "test@test.cz",
+    age: 11
+  }) {
+    type
+    name
+    age
+  }
+}
+```
+
+You can check the result.
+```
+{
+  pets {
+    name
+    age
+    type
+  }
+}
+```
+
+7. reference
 * https://github.com/sambenskin/graphql-spring-boot-tutorial
+
