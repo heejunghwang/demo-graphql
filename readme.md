@@ -5,20 +5,12 @@
 1. add dependency in gradle
 
 ```
-    // graphql 설정
-    compile 'com.graphql-java-kickstart:graphql-spring-boot-starter:5.7.3'
+   // graphql
+   compile 'com.graphql-java-kickstart:graphql-spring-boot-starter:5.7.3'
 
-    // to embed Altair tool
-    runtime 'com.graphql-java-kickstart:altair-spring-boot-starter:5.7.3'
-
-    // to embed GraphiQL tool
-    runtime 'com.graphql-java-kickstart:graphiql-spring-boot-starter:5.7.3'
-
-    // to embed Voyager tool
-    runtime 'com.graphql-java-kickstart:voyager-spring-boot-starter:5.7.3'
-
-    // testing facilities
-    testCompile 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:5.7.3'
+   // to embed GraphiQL tool
+   runtime 'com.graphql-java-kickstart:graphiql-spring-boot-starter:5.7.3'
+   runtime 'com.graphql-java-kickstart:graphql-java-tools'
 ```
 
 2. add graphql servlet config
@@ -108,24 +100,6 @@ graphql:
 Now, you can access this URL in your browser : `http://localhost:8080/graphiq`
 
 4. add `graphqls` file
-graphqls has the info for graphql. For example, `shoesshop.graphqls` has
-
-```
-type Query {
-    shoes: [Shoes]
-}
-
-type Shoes {
-    id: Int
-    brand: Brand
-    name: String
-}
-
-enum Brand {
-    ADIDAS,
-    PUMA
-}
-```
 
 Following objects should be have in Java objects to get the right query.
 You can implement `GraphQLQueryResolver` to get the query result and `GraphQLMutationResolver` for mutating objects.
@@ -135,10 +109,11 @@ When you go to `http://localhost:8080/graphiql`, you can query like below.
 
 ```
 {
-    shoes {
-        id
-        brand
-    }
+  pets {
+    name
+    age
+    type
+  }
 }
 ```
 
