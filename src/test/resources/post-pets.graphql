@@ -1,7 +1,7 @@
-mutation createPetMutation($pet:PetInput) {
-  createPet(input: $pet) {
-    type
+query{
+  pets {
     name
     age
+    type
   }
 }
