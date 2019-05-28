@@ -13,8 +13,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Mutation implements GraphQLMutationResolver {
 
-    @Autowired
     private PetService petService;
+
+    @Autowired
+    public Mutation(PetService petService){
+        this.petService = petService;
+    }
 
     public Pet createPet(PetInput petInput){
         return petService.createPet(petInput);

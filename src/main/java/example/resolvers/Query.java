@@ -14,8 +14,12 @@ import java.util.List;
 @Component
 public class Query implements GraphQLQueryResolver {
 
-    @Autowired
     private PetService petService;
+
+    @Autowired
+    public Query(PetService petService){
+        this.petService = petService;
+    }
 
     public List<Pet> pets() {
         return petService.findPets();

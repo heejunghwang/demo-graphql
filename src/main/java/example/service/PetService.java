@@ -12,8 +12,13 @@ import java.util.List;
 @Service
 @Transactional
 public class PetService {
+
+    private final PetRepository petRepository;
+
     @Autowired
-    private PetRepository petRepository;
+    public PetService(PetRepository petRepository) {
+        this.petRepository = petRepository;
+    }
 
     public Pet createPet(PetInput petInput){
         Pet pet = new Pet();
